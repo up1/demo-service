@@ -46,8 +46,10 @@ public class DatabaseConfiguration {
     @Bean
     public DataSource dataSource() {
         BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName(environment.getProperty("datasource.driver-class-name"));
-        dataSource.setUrl(environment.getProperty("datasource.url"));
+        dataSource.setDriverClassName(
+                environment.getProperty("datasource.driver-class-name"));
+        dataSource.setUrl(
+                environment.getProperty("datasource.url"));
         dataSource.setUsername(environment.getProperty("datasource.username"));
         dataSource.setPassword(environment.getProperty("datasource.password"));
         return dataSource;
