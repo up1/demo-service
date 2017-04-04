@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS ORDERS;
+
+CREATE TABLE ORDERS
+(
+    id int(11) NOT NULL AUTO_INCREMENT,
+    user_id int(11) NOT NULL,
+    detail varchar(100) NOT NULL,
+    PRIMARY KEY (id)
+);

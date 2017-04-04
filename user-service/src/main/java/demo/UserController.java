@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:9000")
 public class UserController {
 
     private final UserRepository userRepository;
@@ -14,8 +14,8 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("/user")
-    public User getUser(@RequestParam(value="id", defaultValue="1") int id) {
-        return this.userRepository.findById((long) id);
+    @GetMapping("/user/{userId}")
+    public User getUser(@PathVariable long userId) {
+        return this.userRepository.findById((long) userId);
     }
 }
