@@ -24,7 +24,6 @@ public class OrderRepository {
             return  this.jdbcTemplate.query(sql,
                     new Object[]{userId}, new OrderRowMapper());
         }catch (Exception exception) {
-            exception.printStackTrace();
             throw new OrderNotFoundException(userId);
         }
     }

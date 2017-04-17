@@ -22,6 +22,10 @@ public class OrderController {
     public List<Order> getOrdersByUserId(@PathVariable long userId) {
 
         List<Order> orderList = this.orderRepository.findByUserId(userId);
+        if(orderList == null || orderList.isEmpty()) {
+            throw new OrderNotFoundException(userId);
+        }
+
         for (Order order: orderList) {
             order.setUser( this.userAdapter.getUserDetail(order.getUserId()) );
         }
